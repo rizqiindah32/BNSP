@@ -16,7 +16,7 @@ class Peminjam extends Authenticatable
     ];
 
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password', // Menyembunyikan password agar tidak terlihat dalam output JSON
+        'remember_token',// Token untuk "remember me" saat login
     ];
 }

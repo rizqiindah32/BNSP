@@ -12,26 +12,26 @@ class RegistrasiController extends Controller
 {
     public function index(Request $request)
     {
-        $search = $request->input('search');
-        $registrasi = Registrasi::with('agama')
+        $search = $request->input('search');// Ambil kata kunci pencarian dari input
+        $registrasi = Registrasi::with('agama')// Ambil data registrasi beserta relasi agama
             ->when($search, function ($query, $search) {
-                $query->where('Nama', 'LIKE', "%{$search}%")
-                    ->orWhere('Email', 'LIKE', "%{$search}%")
-                    ->orWhere('nomor_telepon', 'LIKE', "%{$search}%")
+                $query->where('Nama', 'LIKE', "%{$search}%")// Cari berdasarkan Nama
+                    ->orWhere('Email', 'LIKE', "%{$search}%")// Cari berdasarkan Email
+                    ->orWhere('nomor_telepon', 'LIKE', "%{$search}%")// Cari berdasarkan Nomor Telepon
                     ->orWhereHas('agama', function ($query) use ($search) {
-                        $query->where('nama', 'LIKE', "%{$search}%");
+                        $query->where('nama', 'LIKE', "%{$search}%"); // Cari berdasarkan nama agama
                     });
             })
             ->get();
 
-        return view('registrasi.index', compact('registrasi', 'search'));
+        return view('registrasi.index', compact('registrasi', 'search')); // Tampilkan data registrasi
     }
 
     public function create()
     {
         $agama = Agama::all(); // Data agama
         $buku = buku::all(); // Data buku
-        return view('registrasi.create', compact('agama', 'buku'));
+        return view('registrasi.create', compact('agama', 'buku'));// Tampilkan form registrasi
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class RegistrasiController extends Controller
             'Email' => 'required|email|max:30',
             'Tanggal_lahir' => 'required|date',
             'nomor_telepon' => 'required|string|max:11',
-            'agama_id' => 'required|exists:agama,id',
+            'agama_id' => 'required|exists:agama,id',// Validasi ID agama harus ada di tabel agama
             'buku_id' => 'required|exists:buku,id', // Validasi buku_id
             'alamat' => 'required|string|max:25',
         ]);
@@ -70,8 +70,9 @@ class RegistrasiController extends Controller
             'alamat' => 'required|string|max:25',
         ]);
 
-        $registrasi = Registrasi::findOrFail($id);
-        $registrasi->update($request->all());
+        $registrasi = Registrasi::findOrFail($id);// Cari data registrasi berdasarkan ID
+        $registrasi->update($request->all());// Perbarui data registrasi
+
         return redirect()->route('registrasi.index')->with('success', 'Registrasi berhasil diperbarui.');
     }
 

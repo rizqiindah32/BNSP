@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Membuat halaman responsif -->
     <title>Edit Buku</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Mengimpor Bootstrap -->
 </head>
 
 <body>
@@ -36,11 +37,12 @@
                     required>
             </div>
             <div class="mb-3">
-                <label for="published_at" class="form-label">Tanggal Terbit</label>
+                <label for="published_at" class="form-label">Tanggal Terbit</label><!-- Input untuk tanggal terbit -->
                 <input type="date" name="published_at" id="published_at" class="form-control"
                     value="{{ $buku->published_at }}" required>
             </div>
-            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            <button type="submit" class="btn btn-primary">Simpan
+                Perubahan</button><!-- Tombol untuk menyimpan perubahan -->
             <a href="{{ route('buku.index') }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>

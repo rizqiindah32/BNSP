@@ -20,9 +20,11 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
+        <!-- Form Tambah Buku -->
         <form action="{{ route('buku.store') }}" method="POST" class="mb-4">
             @csrf
             <div class="row">
+                <!-- Dropdown Penulis -->
                 <div class="col-md-3">
                     <select name="penulis_id" class="form-control" required>
                         <option value="" disabled selected>- Pilih Penulis -</option>
@@ -55,6 +57,7 @@
             </thead>
             <tbody>
                 @foreach ($buku as $item)
+                    <!-- Looping data buku -->
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->penulis->nama ?? 'Tidak Ada' }}</td>

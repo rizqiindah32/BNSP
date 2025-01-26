@@ -14,7 +14,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        return view('auth.register');//menampilkan halaman form rehistrasi
     }
 
     /**
@@ -24,20 +24,21 @@ class RegisterController extends Controller
     {
         // Validasi input
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:staff,email',
-            'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|in:staff,peminjam',
+            'name' => 'required|string|max:255',//nama harus disii, string dan maksimal 255 karaktre
+            'email' => 'required|string|email|max:255|unique:staff,email',//email harus disii
+            'password' => 'required|string|min:8|confirmed',//password minimal 8 karakter dan harus dikonfirmasi atau disii
+            'role' => 'required|in:staff,peminjam',//role harus disii sesuai rolenya
         ]);
 
         // Buat user baru
         Staff::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'name' => $request->name,//mengambil nama dari input
+            'email' => $request->email,//mengambil email dari input
+            'password' => Hash::make($request->password),//password harus disii dan miniamal 8 karakter
+            'role' => $request->role,//role harsu diisi sesuai dengan rolenya
         ]);
 
+        //redirect ke halaman login dengan pesan sukses
         return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
     }
 }

@@ -83,21 +83,23 @@
             </div>
 
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" required>
+                <label for="password">Password:</label> <!-- Label untuk input password -->
+                <input type="password" name="password" id="password" required> <!-- Input password dengan validasi -->
             </div>
 
             <div class="form-group role-options">
                 <label>
                     <input type="radio" name="role" value="staff" required> Login sebagai Staff
+                    <!-- Pilihan role staff -->
                 </label>
                 <label>
                     <input type="radio" name="role" value="peminjam" required> Login sebagai Peminjam
+                    <!-- Pilihan role peminjam -->
                 </label>
             </div>
 
             <div class="form-group">
-                <button type="submit">Login</button>
+                <button type="submit">Login</button><!-- Tombol untuk submit form -->
             </div>
         </form>
     </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi</title>
+    <title>Registrasi</title> <!-- Judul halaman -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 
@@ -31,15 +31,16 @@
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
                     required>
             </div>
-            <div class="mb-3">
-                <label for="role" class="form-label">Role</label>
-                <select name="role" id="role" class="form-select" required>
-                    <option value="staff">Staff</option>
-                    <option value="peminjam">Peminjam</option>
+            <div class="mb-3"><!-- Dropdown Role -->
+                <label for="role" class="form-label">Role</label><!-- Label untuk dropdown role -->
+                <select name="role" id="role" class="form-select" required><!-- Dropdown untuk memilih role -->
+                    <option value="staff">Staff</option><!-- Opsi Staff -->
+                    <option value="peminjam">Peminjam</option> <!-- Opsi Peminjam -->
                 </select>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary w-100">Registrasi</button>
+                <button type="submit"
+                    class="btn btn-primary w-100">Registrasi</button><!-- Tombol submit dengan lebar penuh -->
             </div>
         </form>
     </div>

@@ -11,7 +11,7 @@ class StaffSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('staff')->insert([ // Ubah 'staffs' menjadi 'staff'
+        DB::table('staff')->insert([
             [
                 'name' => 'Staff Admin',
                 'email' => 'admin@example.com',

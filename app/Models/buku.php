@@ -9,7 +9,7 @@ class buku extends Model
 {
     use HasFactory;
 
-    protected $table = 'buku';
+    protected $table = 'buku';// Menentukan nama tabel di database
 
     protected $primaryKey = 'id';
 
@@ -20,7 +20,6 @@ class buku extends Model
     ];
 
     public $timestamps = true;
-
 
 public function penulis()
 {

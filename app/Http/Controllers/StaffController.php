@@ -14,12 +14,14 @@ class StaffController extends Controller
 
 public function login(Request $request)
 {
+    // Ambil email dan password dari input pengguna
     $credentials = $request->only('email', 'password');
 
     if (auth()->guard('staff')->attempt($credentials)) {
         return redirect()->route('homepage'); // Pastikan route homepage sudah ada
     }
 
+    // Jika login gagal, kembalikan ke halaman login dengan pesan error
     return back()->withErrors(['email' => 'Login gagal.']);
 }
 
@@ -32,6 +34,6 @@ public function login(Request $request)
 
     public function dashboard()
     {
-        return view('staff.dashboard');
+        return view('staff.dashboard');// Menampilkan halaman dashboard khusus staff
     }
 }
